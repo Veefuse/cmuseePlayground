@@ -1,0 +1,18 @@
+
+FROM ubuntu:24.04
+
+WORKDIR /root
+
+COPY ./cmusee-linux-arm64 /root/cmusee-linux-arm64
+RUN echo "export PATH=\$PATH:/root/cmusee-linux-arm64/bin" >> /root/.bashrc
+
+RUN apt-get update \
+ && apt-get install -y build-essential \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY ./run-arm64.sh /root/run.sh
+COPY ./demo.c /root/demo.c
+RUN /root/cmusee-linux-arm64/bin/cmc /root/demo.c -o /root/demo
+
+CMD ["/root/cmusee-linux-arm64/bin/cmusee", "--external", "--", "/root/demo", "a", "bb", "cc"]

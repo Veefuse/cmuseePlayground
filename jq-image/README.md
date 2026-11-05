@@ -9,7 +9,7 @@
   ``` bash
   wget https://veefuse.com/release/cmusee-demo-x64-3.1.2.tar.xz
   docker load -i ./cmusee-jq-x64-3.1.2.tar.xz
-  docker run -it -p 8890:8890 localhost/cmusee_jq:3.1.2 /bin/bash
+  docker run -it -p 8890:8890 cmusee_jq:3.1.2 /bin/bash
   /root/run.sh # run inside the container
   ```
 

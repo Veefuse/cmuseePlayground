@@ -7,4 +7,5 @@
 # Project
   Currently, it includes the following projects:
 
-  jq
+  - demo
+  - jq
