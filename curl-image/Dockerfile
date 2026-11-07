@@ -1,0 +1,26 @@
+
+FROM ubuntu:22.04
+
+WORKDIR /root
+
+COPY ./cmusee-linux-x64 /root/cmusee-linux-x64
+RUN echo "export PATH=\$PATH:/root/cmusee-linux-x64/bin" >> /root/.bashrc
+
+RUN apt-get update \
+ && apt-get install -y build-essential \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY ./run.sh /root/run.sh
+COPY ./curl-8.23.0 /root/curl-8.23.0
+
+RUN mkdir build
+WORKDIR /root/build
+
+RUN /root/curl-8.23.0/configure --without-ssl --without-libpsl --without-libidn2
+
+RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j16 && rm `find -name "*.o"`
+
+WORKDIR /root
+
+CMD ["/root/cmusee-linux-x64/bin/cmusee", "--external", "--project-dir", "/root/curl-8.23.0", "--", "/root/build/src/curl", "http://example.com"]

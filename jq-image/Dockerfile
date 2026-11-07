@@ -17,7 +17,7 @@ COPY ./jq-1.8.2 /root/jq-1.8.2
 RUN mkdir build
 WORKDIR /root/build
 
-RUN ../jq-1.8.2/configure --disable-docs --enable-static --enable-all-static
+RUN /root/jq-1.8.2/configure --disable-docs --enable-static --enable-all-static
 
 RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j16 && rm `find -name "*.o"`
 
