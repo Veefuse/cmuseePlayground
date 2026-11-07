@@ -14,10 +14,13 @@ RUN apt-get update \
 COPY ./run.sh /root/run.sh
 COPY ./jq-1.8.2 /root/jq-1.8.2
 
-WORKDIR /root/jq-1.8.2
+RUN mkdir build
+WORKDIR /root/build
 
-RUN ./configure --disable-docs --enable-static --enable-all-static
+RUN ../jq-1.8.2/configure --disable-docs --enable-static --enable-all-static
 
 RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j16 && rm `find -name "*.o"`
 
-CMD ["/root/cmusee-linux-x64/bin/cmusee", "--external", "--project-dir", "/root/jq-1.8.2", "--", "/root/jq-1.8.2/jq", ".", "/root/jq-1.8.2/tests/modules/data.json"]
+WORKDIR /root
+
+CMD ["/root/cmusee-linux-x64/bin/cmusee", "--external", "--project-dir", "/root/jq-1.8.2", "--", "/root/build/jq", ".", "/root/jq-1.8.2/tests/modules/data.json"]
