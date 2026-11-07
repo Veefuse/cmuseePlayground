@@ -7,5 +7,5 @@
 # Project
   Currently, it includes the following projects:
 
-  - demo
-  - jq
+  - [demo](https://github.com/Veefuse/cmuseePlayground/tree/master/demo-image)
+  - [jq](https://github.com/Veefuse/cmuseePlayground/tree/master/jq-image)
