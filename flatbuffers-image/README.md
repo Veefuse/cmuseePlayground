@@ -19,7 +19,7 @@
   wget https://veefuse.com/release/cmusee-linux-x64-3.1.2.tar.xz
   tar xavf cmusee-linux-x64-3.1.2.tar.xz # extract
   wget https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19.tar.gz
-  tar xavf flatbuffers-25.12.19.tar.gz # extract
+  tar xavf v25.12.19.tar.gz # extract
 
   docker build -t cmusee_flatbuffers:3.1.2 .
   docker run -it -p 8890:8890 cmusee_flatbuffers:3.1.2 /bin/bash
@@ -31,7 +31,7 @@
   wget https://veefuse.com/release/cmusee-linux-arm64-3.1.2.tar.xz
   tar xavf cmusee-linux-arm64-3.1.2.tar.xz # extract
   wget https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19.tar.gz
-  tar xavf flatbuffers-25.12.19.tar.gz # extract
+  tar xavf v25.12.19.tar.gz # extract
 
   docker build -f ./Dockerfile-arm64 -t cmusee_flatbuffers:3.1.2 .
   docker run -it -p 8890:8890 cmusee_flatbuffers:3.1.2 /bin/bash
