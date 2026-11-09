@@ -9,3 +9,5 @@
 
   - [demo](https://github.com/Veefuse/cmuseePlayground/tree/master/demo-image)
   - [jq](https://github.com/Veefuse/cmuseePlayground/tree/master/jq-image)
+  - [curl](https://github.com/Veefuse/cmuseePlayground/tree/master/curl-image)
+  - [flatbuffers](https://github.com/Veefuse/cmuseePlayground/tree/master/flatbuffers-image)

@@ -1,0 +1,10 @@
+
+services:
+  cmusee-demo:
+    image: cmusee_demo:3.1.2
+    container_name: cmusee-demo
+    ports:
+      - "18890:8890"
+    cpus: 0.5
+    mem_limit: 256m
+    restart: "on-failure:30"

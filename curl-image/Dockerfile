@@ -19,7 +19,7 @@ WORKDIR /root/build
 
 RUN /root/curl-8.23.0/configure --without-ssl --without-libpsl --without-libidn2
 
-RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j16 && rm `find -name "*.o"`
+RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j$(nproc) && rm `find -name "*.o"`
 
 WORKDIR /root
 

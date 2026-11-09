@@ -1,0 +1,10 @@
+
+services:
+  cmusee-flatbuffers:
+    image: cmusee_flatbuffers:3.1.2
+    container_name: cmusee-flatbuffers
+    ports:
+      - "18891:8890"
+    cpus: 0.5
+    mem_limit: 256m
+    restart: "on-failure:30"

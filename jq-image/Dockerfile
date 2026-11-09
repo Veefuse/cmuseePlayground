@@ -19,7 +19,7 @@ WORKDIR /root/build
 
 RUN /root/jq-1.8.2/configure --disable-docs --enable-static --enable-all-static
 
-RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j16 && rm `find -name "*.o"`
+RUN /root/cmusee-linux-x64/bin/cmbuild -- make -j$(nproc) && rm `find -name "*.o"`
 
 WORKDIR /root
 
